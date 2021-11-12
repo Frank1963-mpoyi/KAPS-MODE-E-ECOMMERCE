@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+{% load django_htmx %}
+{% django_htmx_script %}
+<html lang="en">
+    <head>
+      {% block extra_head %} {% endblock  %}
+
+     {% include 'includes/head_link.html'  %}
+
+    </head>
+
+    <body>
+
+        {% include  'includes/scroll-up.html' %}
+
+        {% include 'includes/navbar.html'  with  brand_name="KAPS MODE" %}
+
+
+        {% include 'includes/message.html'  %}
+
+        {% block content %} {% endblock content %}
+
+        <!-- extra body -->
+        {% block extra_body %} {% endblock  %}
+
+
+        {% if page_name == 'home' %}
+             <!--     Sale   -->
+         {% include 'includes/sale-live.html'  %}
+
+         {#% include 'includes/image-slider.html'  %#}
+
+        {% endif %}
+
+         {% include 'includes/footer.html'  %}
+
+        {% include 'includes/scripts.html' %}
+
+    </body>
+</html>

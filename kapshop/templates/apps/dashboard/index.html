@@ -1,0 +1,27 @@
+{% extends 'base_dash.html' %}
+{% load static %}
+
+
+{% block main_content %}
+
+    <div id="page-wrapper">
+        <div class="main-page">
+            
+            {% include 'includes_dash/revenue_banner.html' %}
+
+            {% include 'includes_dash/social_banner.html' %}
+
+            <!-- for amcharts js -->
+            <script src="{% static 'dashboard/js/amcharts.js' %}"></script>
+            <script src="{% static 'dashboard/js/serial.js' %}"></script>
+            <script src="{% static 'dashboard/js/export.min.js' %}"></script>
+            <link rel="stylesheet" href="{% static 'dashboard/css/export.css' %}" type="text/css" media="all" />
+            <script src="{% static 'dashboard/js/light.js' %}"></script>
+            <!-- for amcharts js -->
+
+            <script  src="{% static 'dashboard/js/index1.js' %}"></script>
+
+        </div>
+    </div>
+
+{% endblock main_content %}

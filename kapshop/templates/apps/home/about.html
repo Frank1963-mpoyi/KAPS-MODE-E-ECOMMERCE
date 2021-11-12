@@ -1,0 +1,83 @@
+{% extends  'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<style>
+
+.top-margin{
+    margin-top: 450px;
+}
+    .header img{
+        width: 100%;
+        height: 250px;
+    }
+
+      @media (min-width: 769px) and (max-width: 992px) {
+.top-margin{
+    margin-top: 950px;
+}
+    .text-size{
+        font-size: 45px;
+    }
+
+    .mb-2{
+        font-size: 65px;
+    }
+
+}
+</style>
+
+{% include 'apps/home/_includes/banner.html' %}
+
+
+<div class="container-sm top-margin" >
+    <div class="row justify-content-center">
+        <div class="col-lg-8 wow fadeInUp">
+            <h1 class="text-center mb-2 mb-3 mb-sm-5 mt-sm-5">Bienvenue à Kaps  Mode.</h1>
+            <div class="text-lg text-size">
+                <p>Créée en 2015, Kaps Mode est une marque en passe de devenir un nom connu.
+                    Porté par certains des visages les plus reconnaissables au cours des deux dernières décennies, Kaps  Mode a été
+                    livrant constamment les tendances de vêtements pour hommes les plus en vogue du moment. Chaque collection parisienne
+                    produit est conçu, coupé et cousu au cœur de Paris en France.
+
+                </p>
+
+                <p>Notre marque a considérablement évolué au fil du temps, brisant les tendances et en créant de nouvelles, mais une chose que nous n'avons pas changé est notre désir de donner à nos clients des vêtements vraiment uniques et très à la mode de la plus haute qualité.
+
+                Notre « Kaps Mode » est simple : Ne jamais cesser d'évoluer en tant que marque, et en tant qu'êtres humains.</p>
+            </div>
+        </div>
+
+
+        {#% comment %#}
+        <div class="col-lg-10 mt-5">
+            <h1 class="text-center mb-5 mb-2 mb-sm-5 mt-sm-5 wow fadeInUp">Notre équipe</h1>
+            <div class="row justify-content-center">
+
+                {#% for staff in our_staffs %#}
+                <div class="col-md-6 col-lg-4 wow zoomIn">
+                    <div class="card-doctor">
+                        <div class="header">
+                            <img alt="" src="{% static 'media/photo/kam6.jpg' %}">
+                            <div class="meta">
+                                <a href="#"><span class="mai-call"></span></a>
+                                <a href="#"><span class="mai-logo-whatsapp"></span></a>
+                            </div>
+                        </div>
+                        <div class="body">
+                            <p class="text-xl mb-0">{#{ staff.name }#} </p>
+                            <span class="text-sm text-grey">{#{ staff.job_position }#}</span>
+                        </div>
+                    </div>
+                </div>
+                {#% endfor %#}
+
+            </div>
+        </div>
+        {#% endcomment %#}
+    </div>
+</div>
+
+{% endblock content %}

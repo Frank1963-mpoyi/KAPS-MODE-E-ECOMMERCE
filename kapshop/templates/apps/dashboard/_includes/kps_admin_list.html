@@ -1,0 +1,77 @@
+{% load static %}
+
+
+<div class="tables">
+    <div class="panel-body widget-shadow">
+        <h4>Détails du contact</h4>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+{#                  <th>Nom</th>#}
+                    <th width="180">Numéro</th>
+                    <th>E-mail</th>
+                    <th width="200">Adresse</th>
+                    <th>Ville</th>
+                    <th>Region</th>
+                    <th width="100">Pays</th>
+                    <th>Actif</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if kpsadmin %}
+                    <tr>
+{#                        <td>#}
+{#                            <a href="{% url 'web:kaps_admins:list' %}?iname={{ kpsadmin.name }}">#}
+{#                                {{ kpsadmin.name }}#}
+{#                            </a>#}
+{#                        </td>#}
+                        <td>
+                            <a href="{% url 'web:kaps_admins:list' %}?iphone1={{ kpsadmin.phone1 }}">
+                                {{ kpsadmin.phone1 }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'web:kaps_admins:list' %}?iemail1={{ kpsadmin.email1 }}">
+                                {{ kpsadmin.email1 }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'web:kaps_admins:list' %}?istreet_name={{ kpsadmin.street_name }}">
+                                {{ kpsadmin.house_number }}, {{ kpsadmin.street_name }},
+                                {{ kpsadmin.area }},
+{#                                {{ kpsadmin.city }},#}
+{#                                {% if kpsadmin.post_code %}{{ kpsadmin.post_code }}, {% endif %}#}
+{#                                {{ kpsadmin.region }}, {{ kpsadmin.country }}#}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'web:kaps_admins:list' %}?icity={{ kpsadmin.city }}">
+                                {{ kpsadmin.city }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'web:kaps_admins:list' %}?iregion={{ kpsadmin.region }}">
+                                {{ kpsadmin.region }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'web:kaps_admins:list' %}?icountry={{ kpsadmin.country }}">
+                                {{ kpsadmin.country }}
+                            </a>
+                        </td>
+                        <td align="center">
+                            <a href="{% url 'web:kaps_admins:list' %}?iactive={{ kpsadmin.bool_active }}">
+                                {% if kpsadmin.bool_active %}
+                                    <i class="fa fa-check fa-2x avail" aria-hidden="true"></i>
+                                {% else %}
+                                    <i class="fa fa-times fa-2x not-avail" aria-hidden="true"></i>
+                                {% endif %}
+                            </a>
+                        </td>
+                    </tr>
+                {% endif %}
+            
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,148 @@
+{% load static %}
+
+<script src="{% static 'store/js/index.js' %}" ></script>
+
+{#<script src="{% static 'apps/js/owl.carousel.min.js' %}"></script>#}
+{#<script src="{% static 'apps/js/myscript.js' %}"></script>#}
+{#<script src="{% static 'apps/js/all.min.js' %}"></script>#}
+
+
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+
+
+<!-- Django flash messages time out setting -->
+<script>
+	setTimeout(function(){
+		$('#msg').remove();
+	}, 10000)
+</script>
+<!-- Django flash messages time out setting -->
+
+<!-- POST method reload -->
+<script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+</script>
+
+<!--show registration -->
+ <script>
+    function myFunction() {
+      var x = document.getElementById("myInput");
+      if (x.type === "password") {
+        x.type = "text";
+      } else {
+        x.type = "password";
+      }
+    }
+ </script>
+
+<script type="text/javascript">
+
+    var updateBtns = document.getElementsByClassName("update-cart")
+
+    for (i=0; i < updateBtns.length; i++){
+
+            updateBtns[i].addEventListener("click", function(){
+
+                var productId = this.dataset.product
+                var action = this.dataset.action
+
+                if (user == 'AnonymousUser'){
+                    addCookieItem(productId, action)
+                }else{
+                     updateUserOder(productId , action )
+                }
+            })
+    }
+
+    //function for Cookie
+
+    function addCookieItem(productId, action) {
+
+        //add
+        if (action == "add"){
+
+            if (cart[productId] == undefined){
+            cart[productId] = {"quantity":1}
+
+            }else {
+             cart[productId]["quantity"] += 1
+            }
+
+        }
+
+        //remove
+         if (action == "remove"){
+            cart[productId]["quantity"] -= 1
+
+            if (cart[productId]["quantity"] <=0){
+
+            delete cart[productId];
+
+            }
+        }
+
+        document.cookie = "cart=" + JSON.stringify(cart) + ";domain=;path=/"
+        location.reload()
+    }
+
+    function updateUserOder(productId , action ){
+
+        var url= "{% url 'web:accounting:orders:update' %}"
+
+        fetch(url,{
+        method: 'POST',
+        headers: {
+        'Content-Type':'application/json',
+        'X-CSRFToken':csrftoken,
+        },
+        body:JSON.stringify({ 'productId':productId, 'action':action })
+
+        })
+        .then((response) => { return response.json() })
+        .then((data) => { location.reload() })
+
+    }
+</script>
+
+<!-- Scrolling Button -->
+<script>
+
+    //Get the button
+    let mybutton = document.getElementById("btn-back-to-top");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () {
+      scrollFunction();
+
+    };
+
+    function scrollFunction() {
+
+      if (
+        document.body.scrollTop > 20 ||
+        document.documentElement.scrollTop > 20
+      ) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    mybutton.addEventListener("click", backToTop);
+
+    function backToTop() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+
+</script>

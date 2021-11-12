@@ -1,0 +1,16 @@
+<style>
+    @media (min-width: 769px) and (max-width: 992px) {
+    .text-size{font-size: 45px;}
+}
+</style>
+
+{% if messages %}
+{% for message in messages %}
+<div class=" text-center text-size alert alert-{{ message.tags }} alert-dismissible mb-0" id="msg" role="alert">
+    <button aria-label="Close" class="close text-size" data-dismiss="alert" type="button">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    {{ message|safe }}
+</div>
+{% endfor %}
+{% endif %}

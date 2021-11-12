@@ -1,0 +1,151 @@
+{% load static %}
+
+
+<div class="modal fade" id="addEditContactInfoModal" tabindex="-1" role="dialog" aria-labelledby="addEditContactInfoModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="addEditContactInfoModalLabel">Ajouter ou Modifier les Details</h4>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="{% url 'web:kaps_admins:create' %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    <div class="form-check form-check-inline" align="right">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-12">
+                                    {{ info_form.ibool_active }}
+                                    <label for="id_ibool_active" class="control-label" title="Est-il Utilisé?">Utilisé</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+{#                    <div class="form-check form-check-inline">#}
+{#                        <div class="row">#}
+{#                            <div class="col-md-12">#}
+{#                                <div class="col-md-12">#}
+{#                                    <label for="id_ititle" class="control-label">Nom de la Boutique</label>#}
+{#                                    {{ info_form.iname }}#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+                    <div class="form-check form-check-inline">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <label for="id_iemail1" class="control-label">L'e-mail principal</label>
+                                    {{ info_form.iemail1 }}
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="id_iemail2" class="control-label">L'e-mail secondaire</label>
+                                    {{ info_form.iemail2 }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <label for="id_iemail3" class="control-label">L'e-mail tertiaire</label>
+                                    {{ info_form.iemail3 }}
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="id_iemail4" class="control-label">L'e-mail quaternaire</label>
+                                    {{ info_form.iemail4 }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <label for="id_iphone1" class="control-label">Le numéro principal</label>
+                                    {{ info_form.iphone1 }}
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="id_iphone2" class="control-label">Le numéro secondaire</label>
+                                    {{ info_form.iphone2 }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <label for="id_iphone3" class="control-label">Le numéro tertiaire</label>
+                                    {{ info_form.iphone3 }}
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="id_iphone4" class="control-label">Le numéro quaternaire</label>
+                                    {{ info_form.iphone4 }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-2">
+                                    <label for="id_ihouse_number" class="control-label">Numero</label>
+                                    {{ info_form.ihouse_number }}
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="id_istreet_name" class="control-label">Avenue</label>
+                                    {{ info_form.istreet_name }}
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="id_ipost_code" class="control-label">Post</label>
+                                    {{ info_form.ipost_code }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-4">
+                                    <label for="id_ichildren" class="control-label">Commune</label>
+                                    {{ info_form.iarea }}
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="id_iteens" class="control-label">La Ville</label>
+                                    {{ info_form.icity }}
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="id_iteens" class="control-label">La Region</label>
+                                    {{ info_form.iregion }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-12">
+                                    {{ info_form.icountry }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p></p>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Sauvegarder</button>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>

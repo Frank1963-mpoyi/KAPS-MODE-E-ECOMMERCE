@@ -1,0 +1,33 @@
+{% load static %}
+
+
+{% include 'includes_dash/headlinks.html' %}
+
+<body class="cbp-spmenu-push">
+	<div class="main-content">
+
+        {% include 'includes_dash/sidebar.html' %}
+        <!--left-fixed -navigation-->
+
+        <!-- header-starts -->
+        {% include 'includes_dash/notification_bar.html' %}
+        <!-- //header-ends -->
+        <!-- main content start-->
+
+        {% block main_content %}
+
+        {% endblock main_content %}
+
+        <!--footer-->
+        <div class="footer">
+            <p>
+                &copy; 2021 Kaps Mode. All Rights Reserved | Design by
+                <a href="#" target="_blank">Mpoyi Tshibuyi</a>
+            </p>
+        </div>
+        <!--//footer-->
+    </div>
+
+    <!-- new added graphs chart js-->
+
+    {% include 'includes_dash/foot_js.html' %}

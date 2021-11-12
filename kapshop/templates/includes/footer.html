@@ -1,0 +1,114 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<style>
+.copyright-text{background-color: rgba(0, 0, 0, 0.2);margin-bottom: -48px;}
+.footer-text-size p {font-size: 15px;}
+.horizontal-one {width: 85px;background-color: #DC5B21;height: 2px;}
+.horizontal-two {width: 115px;background-color: #DC5B21;height: 2px;}
+.horizontal-three {width: 110px;background-color: #DC5B21;height: 2px;}
+.horizontal-four{width: 150px;background-color: #DC5B21;height: 2px;}
+
+ @media (min-width: 769px) and (max-width: 992px) {
+ .copyright-text .footer-text-size{font-size: 30px;}
+ .footer-text-size p{font-size: 30px;}
+ .footer-text-size h6{font-size: 32px;}
+ .connect-vous{text-align:left;}
+ .horizontal-one {width: 240px;background-color: #DC5B21;height: 2px;}
+ .horizontal-two {width: 320px;background-color: #DC5B21;height: 2px;}
+ .horizontal-three {width: 320px;background-color: #DC5B21;height: 2px;}
+ .horizontal-four{width: 420px;background-color: #DC5B21;height: 2px;}
+ }
+</style>
+
+<!-- Remove the container if you want to extend the Footer to full width. -->
+<div class=" my-5">
+    <!-- Footer -->
+    <footer class="text-center text-lg-start text-dark" style="background-color: #ECEFF1">
+        <!-- Section: Social media -->
+        <section class="d-flex justify-content-between p-4 text-white" style="background-color: #70AB8F">
+            <!-- Left -->
+            <div class="me-5 connect-vous"><span>Connectez-vous avec nous sur les réseaux sociaux :</span></div>
+            <!-- Left -->
+
+            <!-- Right -->
+            <div><a class="text-white me-4" href="https://www.facebook.com/seraphin.kapembo"><i
+                    class="fab fa-facebook-f"></i></a>
+                <a class="text-white me-4" href=""><i class="fab fa-twitter"></i></a>
+                <a class="text-white me-4"
+                   href="https://api.whatsapp.com/send?phone=+243 810 651 695&text=Bonjour Seraphin Tshibuyi. Comment vous allez je viens sur  votre website"><i class="fab fa-whatsapp"></i></a>
+                <a class="text-white me-4" href=""><i class="fab fa-instagram"></i></a>
+            </div>
+            <!-- Right -->
+        </section>
+        <!-- Section: Social media -->
+
+        <!-- Section: Links  -->
+        <section class="">
+            <div class="container-fluid text-left text-md-start mt-3">
+                <!-- Grid row -->
+                <div class="row mt-3">
+                    <!-- Grid column -->
+                    <div class="col-md-12 col-sm-12 col-lg-4 col-xl-3 mx-auto mb-4 footer-text-size">
+                        <!-- Content -->
+                        <h6 class="text-uppercase fw-bold"><span>Kaps</span> Mode </h6>
+                        <hr class="mb-2 mt-0 d-inline-block mx-auto horizontal-one"/>
+                        <p>
+                            Kaps Mode, c'est l'excellence de la mode actuelle.
+                            Modèles de rois et reines. C'est ton temps de t'habiller et d'impressionner.
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-12 col-sm-12 col-lg-2 col-xl-2 mx-auto mb-4 footer-text-size">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold">Nos <span>Magasins</span></h6>
+                        <hr class="mb-2 mt-0 d-inline-block mx-auto horizontal-two"/>
+                        <p>
+                            <a class="text-dark" href="#!">Kaps Mode</a>
+                        </p>
+                        <p style="font-size: 15px;">
+                            <a class="text-dark" href="#"></a>
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-12 col-sm-12 col-lg-2 col-xl-2 mx-auto mb-4 footer-text-size">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold">Liens <span>Rapides</span></h6>
+                        <hr class="mb-2 mt-0 d-inline-block mx-auto horizontal-three"/>
+                        <p>
+                            <a class="text-dark" href="#!">À propos</a>
+                        </p>
+                        <p style="font-size: 15px;">
+                            <a class="text-dark" href="#!">Contact</a>
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-12 col-sm-12 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4 footer-text-size">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold">Nos <span>Informations</span></h6>
+                        <hr class="mb-2 mt-0 d-inline-block mx-auto horizontal-four"/>
+                        <p><i class="fas fa-home mr-3"></i> {{ kps_admin.street_name}}, {{kps_admin.area}}, {{ kps_admin.city }}, {{ kps_admin.country }} </p>
+                        <p><i class="fas fa-envelope mr-3"></i> {% if kps_admin.email1 %} {{ kps_admin.email1 }} {% else %} seraphinkaps@gmail.com{% endif %}</p>
+                        <p><i class="fas fa-phone mr-3"></i> +243 {% if kps_admin.phone1 %} {{ kps_admin.phone1 }} {% else %}  810 651 695{% endif %}</p>
+                    </div>
+                    <!-- Grid column -->
+                </div>
+                <!-- Grid row -->
+            </div>
+        </section>
+        <!-- Section: Links  -->
+
+        <!-- Copyright -->
+        <div class="text-center p-3 copyright-text">
+            <a class="text-dark footer-text-size" href="#">© 2021 Copyright Mpoyi Tshibuyi</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+</div>
+<!-- End of .container -->

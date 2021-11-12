@@ -1,0 +1,25 @@
+{% load static %}
+
+
+<style>
+
+    .carousel-item img {
+        width: 100%;
+        height: 50vh;
+        object-fit: cover;
+    }
+
+      @media (min-width: 769px) and (max-width: 992px) {
+
+     .carousel-item img {
+        width: 100%;
+        height: 50vh;
+        object-fit: cover;
+    }
+
+</style>
+
+
+<div class="carousel-item active mt-0">
+    <img alt="First slide" class="d-block w-100" src="{% static 'media/photo/mode7.jpg' %}">
+</div>

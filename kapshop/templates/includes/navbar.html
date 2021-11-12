@@ -1,0 +1,100 @@
+{% load static %}
+
+{% include 'includes/top_bar.html' %}
+
+<style>
+    .text-white{font-size: 25px;color: #ffff !important;letter-spacing: 2px;text-decoration: none;}
+    .bg-darker{background:#70AB8F !important;}
+    .bg-darker a{text-decoration: none;color: #ffff !important;}
+    .nav-item a {font-size: 15px !important;text-align: center;color: #ffff ! important;}
+
+    @media (min-width: 769px) and (max-width: 992px) {
+        .container{width: 100% !important;}
+        .navbar-toggler-icon{font-size: 35px;color: #ffff !important;}
+        .nav-item a {font-size: 38px !important;text-align: center;color: #ffff ! important;}
+        .text-white{font-size: 45px;color: #ffff !important;letter-spacing: 2px;text-decoration: none;}
+        .shopping-cart{font-size: 35px;}
+        .small-device-hide{display: none;}
+    }
+</style>
+
+<!-- Navbar -->
+<nav class="navbar sticky-top navbar-expand-lg  navbar-light bg-darker white scrolling-navbar intro-fixed-nav">
+    <div class="container-fluid">
+
+        <!-- Brand -->
+        <a class="navbar-brand waves-effect" href="{% url 'web:home:home' %}">
+            <strong class="text-white"> {{ brand_name }} </strong>
+        </a>
+
+        <a class="nav-link waves-effect d-lg-none " href="{% url 'web:accounting:orders:cart' %}">
+            <span class="badge red z-depth-1 mr-1 shopping-cart"> {{ cartItems }} </span>
+            <i class="fas fa-shopping-cart  shopping-cart"></i>
+        </a>
+        {% if request.user.is_authenticated %}
+        <a class=" brand-color  d-lg-none font-weight-light" href="{% url 'web:accounts:logout' %}"><i
+                class="fas fa-sign-out-alt " style="font-size: 50px;"> &nbsp;</i></a>
+        {% else %}
+        <a class=" brand-color  d-lg-none font-weight-light" href="{% url 'web:accounts:login' %}"> <i class="fa fa-user" style="font-size: 50px;"> </i><span
+                style="font-size: 48px;"> &nbsp;</span></a>
+        {% endif %}
+
+        <!-- Collapse -->
+        <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
+                data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Links -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            <!-- Left -->
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item {% if page_name == 'home' %} active {% endif %}">
+                    <a class="nav-link" href="{% url 'web:home:home' %}"> ACCUEIL <span class="sr-only">{% if page_name == 'home' %}(current){% endif %}</span></a>
+                </li>
+                <li class="nav-item {% if page_name == 'about' %} active {% endif %}">
+                    <a class="nav-link" href="{% url 'web:home:about' %}"> A PROPOS <span class="sr-only">{% if page_name == 'about' %}(current){% endif %}</span></a>
+                </li>
+                <li class="nav-item {% if page_name == 'contact' %} active {% endif %}">
+                    <a class="nav-link" href="{% url 'web:home:contact' %}"> CONTACTEZ-NOUS <span class="sr-only">{% if page_name == 'contact' %}(current){% endif %}</span></a>
+                </li>
+                <li class="nav-item {% if page_name == 'contact' %} active {% endif %}">
+                    <a class="nav-link" href="{#% url 'web:home:contact' %#}"> SPÉCIALES <span class="sr-only">{% if page_name == 'contact' %}(current){% endif %}</span></a>
+                </li>
+
+                {% if staff.management %}
+                <li class="nav-item {% if page_name == 'dashboard' %} active {% endif %}">
+                    <a class="nav-link sm-hidden" href="{% url 'web:dashboard:dashboard' %}">
+                        DASHBOARD <span class="sr-only">{% if page_name == 'dashboard' %}(current){% endif %}</span></a>
+                </li>
+                {% endif %}
+            </ul>
+
+            <!-- right -->
+            <ul class="navbar-nav nav-flex-icons small-device-hide">
+                <li class="nav-item">
+                    <a class="nav-link waves-effect" href="{% url 'web:accounting:orders:cart' %}">
+                        <span class="badge red z-depth-1 ml-1" style="font-size: 15px;"> {{ cartItems }} </span>
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="clearfix d-none d-sm-inline-block"> </span>
+                    </a>
+                </li>
+
+                {% if request.user.is_authenticated %}
+                <li class="nav-item {% if page_name == 'logout' %} active {% endif %}">
+                    <a class="nav-link sm-hidden" href="{% url 'web:accounts:logout' %}"><i class="fas fa-sign-out-alt" style="font-size: 20px;"></i>
+                    <span class="sr-only">{% if page_name == 'logout' %}(current){% endif %}</span> </a>
+                </li>
+                {% else %}
+                <li class="nav-item {% if page_name == 'login' %} active {% endif %}">
+                    <a class="nav-link sm-hidden" href="{% url 'web:accounts:login' %}"><i class="fa fa-user" style="font-size: 25px;"></i>
+                    <span class="sr-only"> {% if page_name == 'login' %}(current){% endif %} </span></a>
+                </li>
+                {% endif %}
+
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Navbar -->
