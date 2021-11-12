@@ -112,7 +112,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
-CONFIG_DIR = os.path.join(BASE_DIR, 'config/')
+CONFIG_DIR = os.path.join(BASE_DIR, 'config')
+print('configuration path', CONFIG_DIR)
 
 parser = configparser.ConfigParser()
 
