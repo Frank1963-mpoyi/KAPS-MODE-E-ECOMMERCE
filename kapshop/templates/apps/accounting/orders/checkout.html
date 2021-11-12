@@ -18,9 +18,14 @@
 
     @media (min-width: 769px) and (max-width: 992px) {.table{font-size: 45px;}
     .mb-2{font-size: 65px;}
-    .text-size{font-size: 30px;}
+    .text-size{font-size: 35px;}
     .button-for-pay {width:100%;height: 80px;font-size: 30px;vertical-align: middle;}
     .top-margin{margin-top: 950px;margin-bottom: 100px;}
+    .text-table1{ font-size: 38px;}
+    .text-table{ font-size: 35px;}
+    .change-product-size{font-size:35px !important;}
+    .form-control{font-size: 35px;margin-top: 20px;}
+
     }
 </style>
 
@@ -103,11 +108,11 @@
                             <table class="table color-darker">
                                 <thead>
                                 <tr>
-                                    <th>Image</th>
-                                    <th>Produit</th>
-                                    <th>Prix</th>
-                                    <th>Quantité</th>
-                                    <th>Total</th>
+                                    <th class="text-table1">Image</th>
+                                    <th class="text-table1">Produit</th>
+                                    <th class="text-table1">Prix</th>
+                                    <th class="text-table1">Quantité</th>
+                                    <th class="text-table1">Total</th>
                                 </tr>
                                 </thead>
 
@@ -117,21 +122,21 @@
 
                                     <td><img alt="" class="img-fluid" src="{{ item.product.image_url }}" style=""/></td>
 
-                                    <td><small>{{ item.product.title }}</small></td>
+                                    <td class="text-table"><small>{{ item.product.title }}</small></td>
 
-                                    <td><small>R{{ item.product.price }} </small></td>
+                                    <td class="text-table"><small>R{{ item.product.price }} </small></td>
 
-                                    <td class="text-center"><small>x{{ item.quantity }}&nbsp;</small></td>
+                                    <td class="text-center text-table "><small>x{{ item.quantity }}&nbsp;</small></td>
 
-                                    <td><small>R{{ item.get_total }}</small></td>
+                                    <td class="text-table"><small>R{{ item.get_total }}</small></td>
                                 </tr>
                                 {% endfor %}
                                 </tbody>
                             </table>
                         </div>
                         <div class="d-flex mt-sm-5 mb-sm-5">
-                            <h4 class="text-size">Grand Total</h4>
-                            <div class="ml-auto h5 text-size"> R <b>{{ order.get_cart_total }} </b></div>
+                            <h4 class="text-size text-table1">Grand Total</h4>
+                            <div class="ml-auto h5 text-size text-table1"> R <b>{{ order.get_cart_total }} </b></div>
                         </div>
                         <hr>
                     </div>

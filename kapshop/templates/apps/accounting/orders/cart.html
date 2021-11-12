@@ -14,6 +14,9 @@
     .mb-2{font-size: 65px;}
     .text-size{font-size: 30px; }
     .top-margin{margin-top: 950px;margin-bottom: 120px;}
+    .text-table1{ font-size: 38px;}
+    .text-table{ font-size: 35px;}
+    .change-product-size{font-size:35px !important;}
     }
 </style>
 
@@ -27,29 +30,29 @@
                 <table class="table table-hover ">
                     <thead>
                     <tr>
-                        <th scope="col">Images</th>
-                        <th scope="col">Produit</th>
-                        <th scope="col">Prix</th>
-                        <th scope="col">Quantité</th>
-                        <th scope="col">Total</th>
-                        {#<th scope="col">Supprimer</th>#}
+                        <th class="text-table1" scope="col">Images</th>
+                        <th class="text-table1" scope="col">Produit</th>
+                        <th class="text-table1" scope="col">Prix</th>
+                        <th class="text-table1" scope="col">Quantité</th>
+                        <th class="text-table1" scope="col">Total</th>
+                        {#<th class="text-table1" scope="col">Supprimer</th>#}
                     </tr>
                     </thead>
                     <tbody>
                     {% for item in items %}
                     <tr>
                         <th scope="row"><img alt="" class="img-fluid" src="{{ item.product.image_url }}" style=""/></th>
-                        <td>{{ item.product.title }}</td>
-                        <td>R{{ item.product.price }}</td>
-                        <td><i aria-hidden="true" class="fa fa-minus chg-quantity  update-cart cursor-pointer"
+                        <td class="text-table">{{ item.product.title }}</td>
+                        <td class="text-table">R{{ item.product.price }}</td>
+                        <td class="text-table"><i aria-hidden="true" class="fa fa-minus chg-quantity  update-cart cursor-pointer change-product-size"
                                data-action="remove" data-product="{{ item.product.uuid_code }}"></i>&nbsp;{{ item.quantity }}&nbsp;<i
-                                aria-hidden="true" class="fa fa-plus chg-quantity update-cart pe-auto cursor-pointer"
+                                aria-hidden="true" class="fa fa-plus chg-quantity update-cart pe-auto cursor-pointer change-product-size"
                                 data-action="add" data-product="{{ item.product.uuid_code }}"></i></td>
-                        <td>R{{ item.get_total }}</td>
+                        <td class="text-table">R{{ item.get_total }}</td>
 
                         <!--  TO BE IMPLEMENTED  -->
                         {% comment %}
-                        <td><i class="fas fa-times chg-quantity update-cart" data-action="delete"
+                        <td class="text-table"><i class="fas fa-times chg-quantity update-cart" data-action="delete"
                                data-product="{{ item.product.uuid_code }}"></i></td>
                         {% endcomment %}
 
@@ -72,14 +75,14 @@
 
         <div class="col-lg-4 col-sm-12">
             <div class="d-flex">
-                <h5 class="text-size">Articles : </h5>
-                <div class="ml-auto font-weight-bold text-size ">{{ order.get_cart_items }}</div>
+                <h5 class="text-size text-table1"> Articles : </h5>
+                <div class="ml-auto font-weight-bold text-size text-table1">{{ order.get_cart_items }}</div>
             </div>
             <hr>
 
             <div class="d-flex">
-                <h5 class="text-size">Grand Total</h5>
-                <div class="ml-auto h5 text-size"> R
+                <h5 class="text-size text-table1"> Grand Total</h5>
+                <div class="ml-auto h5 text-size text-table1"> R
                     <b>{{ order.get_cart_total }}</b></div>
             </div>
             <hr>
