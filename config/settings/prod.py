@@ -2,11 +2,11 @@ import dj_database_url
 
 from .base                                                  import *
 
-DEBUG               =  bool(config("DEBUG"))
+DEBUG               = config("DEBUG")
 
 IS_ENV = 'PROD'
 
-ALLOWED_HOSTS       = ['127.0.0.1', 'kapembu-seraphin.herokuapp.com']
+ALLOWED_HOSTS       = ['127.0.0.1', 'seraphin-kapembu.herokuapp.com']
 
 MIDDLEWARE += [
     'whitenoise.middleware.WhiteNoiseMiddleware',

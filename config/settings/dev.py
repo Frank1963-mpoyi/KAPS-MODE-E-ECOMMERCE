@@ -1,7 +1,7 @@
 from .base                                                      import *
 
 
-DEBUG  = not bool(config("DEBUG"))
+DEBUG  = True#not bool(config("DEBUG"))
 
 IS_ENV = 'DEV'
 
@@ -14,11 +14,11 @@ MIDDLEWARE += [ 'debug_toolbar.middleware.DebugToolbarMiddleware', ]
 DATABASES = {
     'default': {
         'ENGINE'    : 'django.db.backends.postgresql',
-        'NAME'      : config["KAPS_DB_NAME"],
-        'USER'      : config["KAPS_DB_USER"],
-        'PASSWORD'  : config["KAPS_DB_PASSWORD"],
-        'HOST'      : config["KAPS_DB_HOST"],
-        'PORT'      : config["KAPS_DB_PORT"],
+        'NAME'      : config("KAPS_DB_NAME"),
+        'USER'      : config("KAPS_DB_USER"),
+        'PASSWORD'  : config("KAPS_DB_PASSWORD"),
+        'HOST'      : config("KAPS_DB_HOST"),
+        'PORT'      : config("KAPS_DB_PORT"),
     }
 }
 
